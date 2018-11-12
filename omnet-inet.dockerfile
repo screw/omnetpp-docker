@@ -1,4 +1,4 @@
-FROM omnet:latest
+FROM xmarek02/omnet:latest
 
 RUN cd && mkdir -p git && cd git/ && \
     git clone --recursive https://github.com/screw/inet.git && \

@@ -1,18 +1,16 @@
-FROM xmarek02/omnet-req:latest
+FROM xmarek02/omnet-req:v5.4.1
 
 
 WORKDIR /opt/
 
-#RUN wget https://omnetpp.org/omnetpp/send/30-omnet-releases/2331-omnetpp-5-4-1-linux \
-#      --referer=https://omnetpp.org/omnetpp -O omnetpp-5.4.1-src-linux.tgz --progress=dot:giga
 
-RUN wget https://github.com/screw/omnetpp-docker/releases/download/v6.0pre2/omnetpp-6.0pre2-src-linux.tgz
-RUN tar zxf omnetpp-6.0pre2-src-linux.tgz && rm omnetpp-6.0pre2-src-linux.tgz
+RUN wget https://github.com/screw/omnetpp-docker/releases/download/v5.4.1/omnetpp-5.4.1-src-linux.tgz
+RUN tar zxf omnetpp-5.4.1-src-linux.tgz && rm omnetpp-5.4.1-src-linux.tgz
 
 
-ENV PATH /opt/omnetpp-6.0pre2/bin:$PATH
+ENV PATH /opt/omnetpp-5.4.1/bin:$PATH
 
-WORKDIR omnetpp-6.0pre2
+WORKDIR omnetpp-5.4.1
 RUN ./configure WITH_TKENV=no WITH_QTENV=yes WITH_OSG=no WITH_OSGEARTH=no
 RUN make MODE=release -j $(nproc)
 WORKDIR /opt/
