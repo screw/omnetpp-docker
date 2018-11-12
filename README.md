@@ -1,2 +1,2 @@
 # omnetpp-docker
-Experiment with docker
+Experimenting with docker
